@@ -1,5 +1,6 @@
 - name: upgrade linux
   hosts: "*"
+  become: yes
   tasks:
     - name: Update & Upgrade
       apt:
