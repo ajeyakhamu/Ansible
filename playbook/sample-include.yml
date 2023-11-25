@@ -1,0 +1,10 @@
+#- import_playbook: update-diskspace.yml
+- name: get host details
+  hosts: "{{hosts}}"
+  tasks:
+    - name: Print all available facts
+      ansible.builtin.debug:
+        var: ansible_facts
+    - name: Print server info
+      ansible.builtin.debug:
+        msg: Host {{inventory_hostname}} is {{ansible_distribution}}

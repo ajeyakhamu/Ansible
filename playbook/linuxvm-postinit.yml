@@ -1,0 +1,15 @@
+#- import_playbook: change-hostname.yml
+- import_playbook: update-linux.yml
+- import_playbook: install-docker-debian.yml
+  when: "{{ansible_distribution}}" == "Debian"
+- import_playbook: install-docker-ubuntu.yml
+  when: "{{ansible_distribution}}" == "Ubuntu"
+- name: install packages
+  hosts: "{{hosts}}"
+  tasks:
+    - name: install core packages
+      apt:
+        name:
+          - cifs-utils
+        update_cache: yes
+- import_playbook: update-diskspace.yml

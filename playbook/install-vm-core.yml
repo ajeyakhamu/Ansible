@@ -1,0 +1,8 @@
+- name: install packages
+  hosts: "{{hosts}}"
+  tasks:
+    - name: install core packages
+      apt:
+        name:
+          - cifs-utils
+        update_cache: yes

@@ -1,0 +1,36 @@
+- name: update windows servers
+  hosts: "{{hosts}}"
+  gather_facts: no
+
+  tasks:
+    - name: Search-only and return list of found updates if any
+      ansible.windows.win_updates:
+        category_name:
+          - SecurityUpdates
+          - CriticalUpdates
+          - UpdateRollups
+        state: searched
+        log_path: C:\ansible_wu.txt
+
+    - name: Install all updates and reboot as many times as needed
+      ansible.windows.win_updates:
+        category_names: "*"
+        reboot: yes
+        reboot_timeout: 3600
+        category_name:
+          - SecurityUpdates
+          - CriticalUpdates
+          - UpdateRollups
+        accept_list:
+          - KB4056892
+          - KB4073117
+        reject_list:
+          - Windows Malicious Software Removal Tool for Windows
+          - \d{4}-\d{2} Cumulative Update for Windows Server 2016
+
+  #- name: Create directory structure
+  #  win_file:
+  #    path: C:\IIS_BKP
+#  - name: Search and download Windows updates without installing them
+#    ansible.windows.win_updates:
+#      state: downloaded

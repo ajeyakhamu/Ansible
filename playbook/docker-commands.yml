@@ -1,0 +1,11 @@
+- name: Docker shell
+  hosts: "{{hosts}}"
+  tasks:
+    - name: Get container status
+      shell: docker inspect --format={{ '{{.State.Running}}' }} {{ container_name }}
+      register: status
+
+    #Start the container if it is not running
+    #- name: Start the container if it is in stopeed state.
+    #  shell: docker start heuristic_mestorf
+    #  when: status.stdout != "true"
