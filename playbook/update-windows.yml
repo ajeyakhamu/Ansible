@@ -1,5 +1,5 @@
 - name: update windows servers
-  hosts: "{{hosts}}"
+  hosts: "*"
   gather_facts: no
 
   tasks:

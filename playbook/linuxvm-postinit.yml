@@ -5,7 +5,7 @@
 - import_playbook: install-docker-ubuntu.yml
   when: "{{ansible_distribution}}" == "Ubuntu"
 - name: install packages
-  hosts: "{{hosts}}"
+  hosts: "*"
   tasks:
     - name: install core packages
       apt:

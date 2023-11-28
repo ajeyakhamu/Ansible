@@ -1,6 +1,6 @@
 #- import_playbook: update-diskspace.yml
 - name: get host details
-  hosts: "{{hosts}}"
+  hosts: "*"
   tasks:
     - name: Print all available facts
       ansible.builtin.debug:

@@ -1,5 +1,5 @@
 - name: Docker shell
-  hosts: "{{hosts}}"
+  hosts: "*"
   tasks:
     - name: Get container status
       shell: docker inspect --format={{ '{{.State.Running}}' }} {{ container_name }}

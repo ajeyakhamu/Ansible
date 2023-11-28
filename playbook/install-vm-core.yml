@@ -1,5 +1,5 @@
 - name: install packages
-  hosts: "{{hosts}}"
+  hosts: "*"
   tasks:
     - name: install core packages
       apt:
