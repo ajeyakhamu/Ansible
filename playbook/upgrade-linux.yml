@@ -16,4 +16,4 @@
 
     - name: Print return information from the previous task
       ansible.builtin.debug:
-        msg: "Host {{inventory_hostname}} needs reboot: {{reboot_required}}""
+        msg: "Host {{inventory_hostname}} needs reboot: {{reboot_required.stdout}}"
