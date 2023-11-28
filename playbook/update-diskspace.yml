@@ -1,5 +1,5 @@
 - name: disk space
-  hosts: "{{ hosts }}"
+  hosts: "*"
   tasks:
     - name: Get disk usage
       command: df -h
