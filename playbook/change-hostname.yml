@@ -1,5 +1,5 @@
 - name: change hostname
-  hosts: "{{hosts}}"
+  hosts: "*"
   vars:
     oldhostname: debian12base
     newhostname: dockerhost02
