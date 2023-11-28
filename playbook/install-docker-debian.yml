@@ -1,5 +1,5 @@
 - name: install docker
-  hosts: "{{hosts}}"
+  hosts: "*"
   tasks:
     - name: install docker dependencies
       apt:
