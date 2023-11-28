@@ -13,3 +13,8 @@
       stat:
         path: /var/run/reboot-required
       register: reboot_required
+
+    - name: Print return information from the previous task
+      ansible.builtin.debug:
+        var: result
+        verbosity: 2

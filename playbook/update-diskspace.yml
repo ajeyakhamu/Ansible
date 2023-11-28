@@ -8,3 +8,8 @@
     - name: Check disk space available
       shell: df -h / | awk 'NR==2 {print $5}'
       register: disk_usage
+
+    - name: Print return information from the previous task
+      ansible.builtin.debug:
+        var: disk_usage
+        verbosity: 2
