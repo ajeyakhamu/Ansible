@@ -1,5 +1,0 @@
-docker-py
-docker-compose
-
-
-

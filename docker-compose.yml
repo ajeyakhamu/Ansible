@@ -1,15 +1,14 @@
 version: "3.7"
 
 services:
-  ansibleapp:
-#    build:
-#      context: .
-    image: ansibleapp
-    container_name: ansibleapp
-    restart: unless-stopped
-    volumes:
-      - ./hosts:/etc/ansible/hosts
-      - ./ansible.cfg:/etc/ansible/ansible.cfg
-      - ./playbook:/playbook
-    stdin_open: true
-    tty: true
+  semaphore:
+    container_name: semaphore
+    ports:
+      - 9001:3000
+    image: semaphoreui/semaphore:latest
+    environment:
+      SEMAPHORE_DB_DIALECT: bolt
+      SEMAPHORE_ADMIN_PASSWORD: changeme
+      SEMAPHORE_ADMIN_NAME: admin
+      SEMAPHORE_ADMIN_EMAIL: admin@localhost
+      SEMAPHORE_ADMIN: admin
