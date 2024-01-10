@@ -1,5 +1,6 @@
 - name: install docker
   hosts: "*"
+  become: yes
   tasks:
     - name: install docker dependencies
       apt:
