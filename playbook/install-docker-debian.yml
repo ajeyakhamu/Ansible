@@ -10,6 +10,9 @@
           - curl
           - gnupg
           - software-properties-common
+          - cifs-utils
+          - libpam-mount
+          - linux-modules-extra-$(uname -r)
         update_cache: yes
     - name: add docker gpg key
       ansible.builtin.shell:
